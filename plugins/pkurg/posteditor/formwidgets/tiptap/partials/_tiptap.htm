@@ -1,0 +1,13 @@
+<style type="text/css">.el-tiptap-editor__menu-bar.border-top-radius {border-top-width: 0;}.el-tiptap-editor__menu-bubble { display: none !important;}</style>
+<div id='input-id' input-id="<?= $this->getId('input') ?>"></div><div id=curlocale lang="<?= $curlang ?>"></div>
+<div class="elements-tiptap-root" wid="<?= $this->getId('input') ?>"></div>
+<textarea  style=" display: none;"  name="<?=$name?>" id="<?= $this->getId('input') ?>"  >
+   <?=e($value)?>
+ </textarea>
+<!-- <link rel="stylesheet" href="<?php echo $this->urls('plugins/pkurg/posteditor/formwidgets/tiptap/assets/css/theme.css') ?>"> -->
+<link id="external-css" rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css" media="all">
+<link rel="stylesheet" href="<?php echo $this->urls('plugins/pkurg/posteditor/formwidgets/tiptap/assets/css/chunk-vendors.d6e43ad4.css') ?>">
+<div id=app></div>
+<script src="<?php echo $this->urls('plugins/pkurg/posteditor/formwidgets/tiptap/assets/js/chunk-vendors.js?v=22') ?>"></script>
+<script src="<?php echo $this->urls('plugins/pkurg/posteditor/formwidgets/tiptap/assets/js/app.js?v=22') ?>"></script>
+

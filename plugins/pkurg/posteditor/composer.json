@@ -1,0 +1,8 @@
+{
+    "name": "pkurg/posteditor-plugin",
+    "type": "october-plugin",
+    "description": "None",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

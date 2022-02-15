@@ -1,0 +1,10 @@
+{% for item in items if not item.viewBag.isHidden %}
+    <li class="nav-item  {{ item.isActive ? 'active' : '' }}">
+        <a class="nav-link {{ item.items ? 'dropdown-toggle' : '' }}  {{ item.items ? 'dropdown-item' : '' }}" href="{{ item.url }}"> {{ item.title }}</a>
+        {% if item.items %}
+        <ul class="dropdown-menu">
+            {% partial __SELF__ ~ "::items" items=item.items %}
+        </ul>
+        {% endif %}
+    </li>
+{% endfor %}

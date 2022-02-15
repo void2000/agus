@@ -1,0 +1,46 @@
+tabs:
+    fields:    
+        section_title:
+            label: 'Manage Post Editor Settings'
+            tab: 'General'
+            span: full
+            type: section        
+        useeditor:
+            label: Choose Editor
+            type: radio
+            tab: 'General'
+            options:
+                none: System default
+                grapesjs: Grapesjs                
+                summernote: SummerNote
+                ckeditor: CKEditor4                                
+                tiptap: Element-tiptap
+        savelocal:
+            tab: 'Grapesjs'
+            label: Save uploaded files to the Media Library
+            type: checkbox                    
+        customblocks:
+            tab: 'Grapesjs'
+            label: Custom Block Code
+            type: codeeditor
+            size: giant
+            comment: 
+        content:
+            tab: 'Grapesjs'
+            type: partial
+            path: $/pkurg/posteditor/partials/codeblock.htm       
+        builder_styles:
+            tab: 'Builder Canvas Assets'
+            label: Styles
+            type: codeeditor
+            language: php
+        builder_scripts:
+            tab: 'Builder Canvas Assets'
+            label: Scripts
+            type: codeeditor
+            language: php
+        contenta:
+            tab: 'Builder Canvas Assets'
+            type: partial
+            path: $/pkurg/posteditor/partials/forasset.htm           
+            

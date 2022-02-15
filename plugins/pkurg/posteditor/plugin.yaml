@@ -1,0 +1,6 @@
+plugin:
+    name: 'pkurg.posteditor::lang.plugin.name'
+    description: 'pkurg.posteditor::lang.plugin.description'
+    author: Vladimir
+    icon: oc-icon-edit
+    homepage: ''

@@ -1,0 +1,18 @@
+<textarea style="display: none;" class="summernote-post-editor layout-relative" id="<?= $this->getId('input') ?>" name="<?= $name ?>" ><?= e($value) ?></textarea>
+<script>
+  $(document).ready(function() {    
+    var h = $('#Form-field-Post-content-group').height();
+    var ckposteditor = CKEDITOR.replace('<?= $this->getId('input') ?>', {
+        language: '<?= $lang ?>',        
+        height: h-105,
+        resize_enabled: false,
+        filebrowserUploadMethod: 'form',
+        filebrowserUploadUrl: '<?=url($backendpath . '/pkurg/posteditor/builderuploader/uploadckeditorfiles?type=Images&_token=')?>' + $('meta[name=csrf-token]').attr("content")
+        
+    });
+    for (var i in CKEDITOR.instances) {
+        CKEDITOR.instances[i].on('change', function() { CKEDITOR.instances[i].updateElement() });
+    }
+
+});  
+</script>

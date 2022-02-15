@@ -1,0 +1,59 @@
+<?php $id = substr($this->getId('textarea'), 16) . time();?>
+<?php $editorname = uniqid();?>
+<style>
+  select.form-control.mlselector {
+    width: 50px;
+    text-transform: uppercase;
+    z-index: 999;
+    position: absolute;
+    right: 2px;
+    top: -35px;
+    height: 32px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+</style>
+<textarea name="<?= $field->getName() ?>" style="display: none"></textarea>
+<?php foreach ($locales as $code => $name): ?>
+<?php
+$value = $this->getLocaleValue($code);
+$value = $this->isLocaleFieldJsonable() ? json_encode($value) : $value;
+?>
+ <textarea
+ id="<?=$id?><?=$code?>"  
+ style=" display: none;" 
+ name="<?=$field->getName('RLTranslate[' . $code . ']')?>" 
+ data-locale-value="<?=$code?>"
+ <?=$field->getAttributes()?>
+ ><?=e($value)?>
+ </textarea>
+<?php endforeach?>
+<select id="mlselector" class="form-control mlselector">
+  <?php foreach ($locales as $code => $name): ?>
+  <option value="<?=$code?>"><?=$code?></option>
+  <?php endforeach?>
+</select>
+<script>
+  $('#mlselector').on('change', function() {
+    id = '<?=$id?>' + this.value;
+    $('.grapesjs-post-editor').hide();
+    $('#gjs' + id).show();                         
+    StartPostEditor(id, '<?=$editorname?>', '<?=url($mediapath)?>', '<?=url($backendpath . '/pkurg/posteditor/builderuploader/uploadfiles')?>', `<?=$customblocks?>`, canvasAssets );
+  });
+</script>
+<style>.gjs-editor-cont {height: <?=$size?>px !important;}</style>
+<div style="display: none" id="pechecktext"></div>
+<?php foreach ($locales as $code => $name): ?>
+<div id="gjs<?=$id?><?=$code?>" class="size-<?= $size ?>  grapesjs-post-editor"></div>
+<?php endforeach?>
+<script>
+var canvasAssets = { <?=$canvasAssets?> };    
+$( document ).ready(function() {
+  StartPostEditor('<?=$id?><?=$l?>', '<?=$editorname?>', '<?=url($mediapath)?>', '<?=url($backendpath . '/pkurg/posteditor/builderuploader/uploadfiles')?>', `<?=$customblocks?>`, canvasAssets );
+});
+</script>
+
+
+
+
+

@@ -1,0 +1,88 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Katen - Minimal Blog & Magazine HTML Theme</title>
+	<meta name="description" content="Katen - Minimal Blog & Magazine HTML Theme">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="{{'assets/css/bootstrap.min.css'|theme}}" type="text/css " media="all">
+	<link rel="stylesheet" href="{{'assets/css/all.min.css'|theme}}" type="text/css }" media="all">
+	<link rel="stylesheet" href="{{'assets/css/slick.css'|theme}}" type="text/css " media="all">
+	<link rel="stylesheet" href="{{'assets/css/simple-line-icons.css'|theme}}" type="text/css " media="all">
+	<link rel="stylesheet" href="{{'assets/css/style.css'|theme}}" type="text/css " media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% styles %}
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'|theme}}"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js'|theme}}"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- preloader -->
+<div id="preloader">
+	<div class="book">
+		<div class="inner">
+			<div class="left"></div>
+			<div class="middle"></div>
+			<div class="right"></div>
+		</div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</div>
+
+<!-- site wrapper -->
+<div class="site-wrapper">
+
+	<div class="main-overlay"></div>
+    {% partial 'site/header' %}
+	
+    {% page %}
+
+    {% partial 'site/footer' %}
+
+</div><!-- end site wrapper -->
+
+<!-- search popup area -->
+{% partial 'site/search' %}
+
+ 
+<!-- JAVA SCRIPTS -->
+<script src="{{'assets/js/jquery.min.js'|theme}}"></script>
+<script src="{{'assets/js/popper.min.js'|theme}}"></script>
+<script src="{{'assets/js/bootstrap.min.js'|theme}}"></script>
+<script src="{{'assets/js/slick.min.js'|theme}}"></script>
+<script src="{{'assets/js/jquery.sticky-sidebar.min.js'|theme}}"></script>
+<script src="{{'assets/js/custom.js'|theme}}"></script>
+{% framework extras %}
+{% scripts %}
+</body>
+</html>
+ 
+ 

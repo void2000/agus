@@ -1,0 +1,62 @@
+<style>
+  select.form-control.mlselector {
+    width: 50px;
+    text-transform: uppercase;
+    z-index: 999;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+<?php foreach ($locales as $code => $name): ?>
+#cke_mlsummernote<?=$code?> {
+    display: none;
+}
+<?php endforeach?>
+#cke_mlsummernote<?=$l?> {
+    display: block;
+}
+</style>
+<textarea name="<?= $field->getName() ?>" style="display: none"></textarea>
+<?php foreach ($locales as $code => $name): ?>
+<?php
+$value = $this->getLocaleValue($code);
+$value = $this->isLocaleFieldJsonable() ? json_encode($value) : $value;
+?>
+<textarea
+id = "mlsummernote<?=$code?>"
+style="display: none;"
+class="mlsummernote"
+name="<?=$field->getName('RLTranslate[' . $code . ']')?>"
+data-locale-value="<?=$code?>"
+<?=$field->getAttributes()?>
+><?=e($value)?> </textarea>
+<?php endforeach?>
+<select id="mlselector" class="form-control mlselector">
+  <?php foreach ($locales as $code => $name): ?>
+  <option value="<?=$code?>"><?=$code?></option>
+  <?php endforeach?>
+</select>
+<script>
+  $(document).ready(function() {
+    var h = $('#Form-field-Post-content-group').height();
+    $(function(){
+        $('.mlsummernote').each(function(e){
+         var cke = CKEDITOR.replace(this.id, {
+            language: '<?=$l?>',
+            height: h-105,
+            resize_enabled: false,
+            filebrowserUploadMethod: 'form',
+            filebrowserUploadUrl: '<?=url($backendpath . '/pkurg/posteditor/builderuploader/uploadckeditorfiles?type=Images&_token=')?>' + $('meta[name=csrf-token]').attr("content"),                    
+        });
+         cke.on('change', function() {           
+            cke.updateElement() 
+        });
+     });
+    });
+    $('#mlselector').on('change', function() {
+        $('.cke' ).hide();
+        $('#mlsummernote' + this.value ).next().show();
+    });
+    $('#mlselector').val('<?=$l?>');
+});
+</script>

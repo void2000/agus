@@ -1,0 +1,18 @@
+1.0.1:
+    - Initialize plugin.
+1.0.2:
+    - Added SummerNote editor
+1.0.3:
+    - Added CKEditor4 editor    
+1.0.4:
+    - Grapesjs height in pixels option
+1.0.5:
+    - Added the ability to connect styles and scripts to the grapesjs canvas
+1.0.6:
+    - ol ul grapesjs components fix
+1.0.7:
+    - Adds initial support for October v2.0        
+1.0.8:
+    - Added Elements Tiptap editor    
+1.0.9:
+    - Added MLGrapesjs  editor        

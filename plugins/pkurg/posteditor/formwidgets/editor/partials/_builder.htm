@@ -1,0 +1,25 @@
+<style>.gjs-editor-cont {height: <?=$size?>px !important;}</style>
+<?php $id = substr($this->getId('textarea'), 16) . time();?>
+<?php $editorname = uniqid();?>
+<div class="switch-link">
+  <a id="linkcod<?=$id?>"  class="cod-link"   onclick="myFunction<?=$editorname?>()">Builder</a>
+  <a id="savecod<?=$id?>"  class="cod-link"  onclick="mySave<?=$editorname?>()" >Apply</a>
+</div>
+<div style="display: none" class="cod" id="cod<?=$id?>">
+ <textarea  style=" resize: none;" class="code-area" name="<?=$name?>" id="<?=$id?>"  >
+   <?=e($value)?>
+ </textarea>
+</div>
+<div style="display: none" id="pechecktext"></div>
+<div id="gjs<?=$id?>" class="size-<?= $size ?>"></div>
+<script>
+let canvasAssets = { <?=$canvasAssets?> };    
+$( document ).ready(function() {
+  StartPostEditor('<?=$id?>', '<?=$editorname?>', '<?=url($mediapath)?>', '<?=url($backendpath . '/pkurg/posteditor/builderuploader/uploadfiles')?>', `<?=$customblocks?>`, canvasAssets );
+});
+</script>
+
+
+
+
+

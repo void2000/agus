@@ -1,0 +1,43 @@
+<textarea style="display: none;" class="summernote-post-editor layout-relative" id="<?= $this->getId('input') ?>" name="<?= $name ?>" ><?= e($value) ?></textarea>
+<script>
+  $(document).ready(function() {    
+    var h = $('#Form-field-Post-content-group').height();
+    $('#<?= $this->getId('input') ?>').summernote({
+      lang: '<?= $lang ?>',
+      height: h-65,
+      focus: true ,
+      callbacks: {
+        onImageUpload: function(files) {
+
+         for(let i=0; i < files.length; i++) {
+          console.log(files[i]);
+          $.upload(files[i]);
+        }
+      }
+    }
+  });
+  });
+
+
+  $.upload = function (file) {
+    let out = new FormData();
+    out.append('file', file, file.name);
+    $.ajax({
+      method: 'POST',
+      url: '<?=url($backendpath . '/pkurg/posteditor/builderuploader/uploadsummernotefiles')?>',
+      contentType: false,
+      cache: false,
+      processData: false,
+      data: out,
+      success: function (img) {
+        $('#<?= $this->getId('input') ?>').summernote('insertImage', img);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.error(textStatus + " " + errorThrown);
+      }
+    });
+  };
+  
+</script>
+
+

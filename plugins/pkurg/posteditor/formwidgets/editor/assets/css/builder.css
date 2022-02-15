@@ -1,0 +1,14 @@
+
+	div.builder-panel {
+		z-index: 99999 !important;
+		position: absolute !important;
+	}
+	#insertAfterBtn {
+		border-style: none !important;
+		font-size: 12px !important;
+		opacity: 0.2 !important;
+		padding: 5px !important;
+	}
+	#insertAfterBtn:hover {
+		opacity: 1 !important;
+	}
